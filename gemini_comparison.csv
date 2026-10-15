@@ -1,0 +1,62 @@
+model,latency_seconds,input_tokens,output_tokens,total_tokens,response,error
+gemini-3.5-flash-lite,2.909,58,373,431,"Welcome, future engineers! When writing code, errors happen. In programming, errors that crash your program while it is running are called **exceptions**. 
+
+### 1. A Simple Definition
+Exception handling is a way to tell your program: *""If something goes wrong, don't crash. Instead, catch the error and do this backup plan.""* 
+Think of it like a safety harness or a circuit breaker in an electrical system. 
+
+In Python, we use `try`, `except`, `else`, and `finally` blocks to manage this.
+
+### 2. A Practical Real-World Example
+Imagine you are writing a Python script to calculate the stress on a mechanical beam: $\text{Stress} = \frac{\text{Force}}{\text{Area}}$. 
+
+If a user accidentally enters `0` for the area, Python will crash with a `ZeroDivisionError`. Here is how we handle it safely:
+
+```python
+try:
+    force = float(input(""Enter force (N): ""))
+    area = float(input(""Enter area (m^2): ""))
+
+    stress = force / area
+    print(f""Calculated Stress: {stress} Pascals"")
+
+except ZeroDivisionError:
+    print(""Error: Area cannot be zero! Please enter a valid number."")
+
+except ValueError:
+    print(""Error: Please enter numbers only, not text."")
+```
+If the user enters zero or a letter, the program prints a helpful warning instead of red error text and abruptly stopping.
+
+### 3. A Short Summary
+Exception handling uses `try` and `except` blocks to gracefully catch runtime errors. As engineers, writing robust code means anticipating failures—like bad sensor data or user input—and handling them so your systems keep running safely.",
+gemini-3.6-flash,2.918,58,15,454,"Welcome to today's lesson, engineers!
+
+### 1. Simple",
+gemini-3.1-flash-lite,2.06,58,345,403,"### Exception Handling in Python
+
+#### 1. What is it?
+In programming, an **exception** is an error that occurs while your code is running (like trying to divide by zero). **Exception handling** is the process of catching these errors so your program doesn't crash. Instead of stopping abruptly, you can ""catch"" the error and decide how the program should respond.
+
+#### 2. Real-World Example: Sensor Data
+Imagine you are writing code to read temperature data from a sensor. Sometimes, the sensor might be disconnected, causing a `FileNotFoundError`. Without handling, your entire engineering simulation would crash.
+
+```python
+try:
+    # Attempt to read the sensor file
+    with open(""sensor_data.txt"", ""r"") as file:
+        data = file.read()
+except FileNotFoundError:
+    # Gracefully handle the missing file
+    print(""Warning: Sensor not detected. Using default values."")
+    data = 25.0  # Use a safe default temperature
+finally:
+    print(""Process complete."")
+```
+
+#### 3. Summary
+*   **`try` block:** Contains the code that *might* cause an error.
+*   **`except` block:** Contains the code that runs *only if* an error occurs.
+*   **`finally` block:** Runs no matter what (useful for closing files or connections).
+
+By using exception handling, you make your engineering software **robust**. Instead of failing silently or crashing, your program can log the issue, alert the user, or switch to a ""safe mode,"" ensuring your systems remain reliable even when things go wrong.",
